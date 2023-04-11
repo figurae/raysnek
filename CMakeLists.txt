@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(raysnek)
+project(raysnek VERSION 0.1)
 
 # raylib
 find_package(raylib QUIET)
@@ -34,8 +34,10 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BUILD_DIR})
 
 set(SOURCES ${SOURCE_DIR}/main.cxx)
+configure_file(${SOURCE_DIR}/config.hxx.in ${SOURCE_DIR}/config.hxx)
 add_executable(${PROJECT_NAME} ${SOURCES})
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 17)
+target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}")
 target_link_libraries(${PROJECT_NAME} PUBLIC raylib raylib_cpp)
 
 # Web Configurations

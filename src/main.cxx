@@ -1,4 +1,6 @@
 #include "raylib-cpp.hpp"
+#include "config.hxx"
+#include <iostream>
 
 #if defined(PLATFORM_WEB)
     #include <emscripten/emscripten.h>
@@ -6,8 +8,7 @@
 
 int screenWidth = 800;
 int screenHeight = 450;
-const char* windowTitle = "raysnek 0.1"; // TODO: make it read version number from CMakeLists.txt
-
+    
 void Update(void) {
     // TODO: to be implemented
 }
@@ -23,7 +24,7 @@ void Draw(void) {
 
 int main()
 {
-    raylib::Window window(screenWidth, screenHeight, windowTitle);
+    raylib::Window window(screenWidth, screenHeight, (GAME_TITLE + " " + GAME_VERSION));
 
 #if defined(PLATFORM_WEB)
     emscripten_set_main_loop(UpdateDrawFrame, 0, 1);
