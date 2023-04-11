@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Dev/CXX/raysnek/build",
+  "command": "C:\\ProgramData\\chocolatey\\bin\\c++.exe -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -IC:/Dev/CXX/raysnek/build/_deps/raylib-src/src -IC:/Dev/CXX/raysnek/build/_deps/raylib-src/src/external/glfw/include -IC:/Dev/CXX/raysnek/build/_deps/raylib_cpp-src/include -std=gnu++17 -o CMakeFiles\\raysnek.dir\\src\\main.cxx.obj -c C:\\Dev\\CXX\\raysnek\\src\\main.cxx",
+  "file": "C:\\Dev\\CXX\\raysnek\\src\\main.cxx",
+  "output": "CMakeFiles\\raysnek.dir\\src\\main.cxx.obj"
+}
+]
