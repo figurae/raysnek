@@ -1,5 +1,3 @@
 #!/bin/sh
 
-cd build
-make
-./raysnek
+cd build && make && ./raysnek
