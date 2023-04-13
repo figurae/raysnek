@@ -1,3 +1,4 @@
+#include "Math.hxx"
 #include "config.hxx"
 #include "raylib-cpp.hpp"
 #include <iostream>
