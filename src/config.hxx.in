@@ -1,2 +1,4 @@
+#include <string>
+
 const std::string GAME_TITLE = "${CMAKE_PROJECT_NAME}";
 const std::string GAME_VERSION = "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}";
