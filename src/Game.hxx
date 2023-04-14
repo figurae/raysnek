@@ -35,11 +35,14 @@ public:
   void initialize() {
     // TODO: is this the right place for this?
     // maybe place this in the constuctor?
-    m_window->Init(m_screenWidth, 450, "aaa");
+    // but then I'd have to write it...
+    m_window->Init(m_screenWidth, m_screenHeight, m_titleBar);
 
     // SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     SetTargetFPS(60);
   }
+
+  void update() {}
 
   void draw() {
     BeginDrawing();
@@ -48,6 +51,4 @@ public:
 
     EndDrawing();
   }
-
-  void update() {}
 };
