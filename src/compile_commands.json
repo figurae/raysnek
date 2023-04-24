@@ -1,8 +1,14 @@
 [
 {
-  "directory": "C:/Dev/CXX/raysnek/build",
-  "command": "C:\\ProgramData\\chocolatey\\bin\\c++.exe -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -IC:/Dev/CXX/raysnek/build/_deps/raylib-src/src -IC:/Dev/CXX/raysnek/build/_deps/raylib-src/src/external/glfw/include -IC:/Dev/CXX/raysnek/build/_deps/raylib_cpp-src/include -std=gnu++17 -o CMakeFiles\\raysnek.dir\\src\\main.cxx.obj -c C:\\Dev\\CXX\\raysnek\\src\\main.cxx",
-  "file": "C:\\Dev\\CXX\\raysnek\\src\\main.cxx",
-  "output": "CMakeFiles\\raysnek.dir\\src\\main.cxx.obj"
+  "directory": "/home/aidenn/Documents/Dev/C++/raysnek/build",
+  "command": "/usr/bin/c++  -I/home/aidenn/Documents/Dev/C++/raysnek/build -I/home/aidenn/Documents/Dev/C++/raysnek/build/_deps/raylib_cpp-src/include -std=gnu++17 -o CMakeFiles/raysnek.dir/src/main.cxx.o -c /home/aidenn/Documents/Dev/C++/raysnek/src/main.cxx",
+  "file": "/home/aidenn/Documents/Dev/C++/raysnek/src/main.cxx",
+  "output": "CMakeFiles/raysnek.dir/src/main.cxx.o"
+},
+{
+  "directory": "/home/aidenn/Documents/Dev/C++/raysnek/build",
+  "command": "/usr/bin/c++  -I/home/aidenn/Documents/Dev/C++/raysnek/build -I/home/aidenn/Documents/Dev/C++/raysnek/build/_deps/raylib_cpp-src/include -std=gnu++17 -o CMakeFiles/raysnek.dir/src/Game.cxx.o -c /home/aidenn/Documents/Dev/C++/raysnek/src/Game.cxx",
+  "file": "/home/aidenn/Documents/Dev/C++/raysnek/src/Game.cxx",
+  "output": "CMakeFiles/raysnek.dir/src/Game.cxx.o"
 }
 ]
