@@ -1,24 +1,43 @@
 #pragma once
 
 #include <memory>
+#include <string_view>
 #include <unordered_map>
+#include <vector>
 
-enum struct SceneType { Menu, InGame, Count };
-enum struct Scene { MainMenu, Level01, Count };
+enum struct SceneType { Unknown, Menu, InGame, Count };
 
-using SceneContainer = std::unordered_map<int, int>; // TODO
-using SharedSceneContainer = std::shared_ptr<SceneContainer>;
+struct Scene {
+  // TODO: check the rule of six
+  Scene(const char *name, const SceneType type = SceneType::Unknown)
+      : sceneName(name), sceneType(type) {}
+
+  const std::string_view sceneName{};
+  const SceneType sceneType{};
+};
+
+struct MenuScene : Scene {
+  MenuScene(const char *name) : Scene(name, SceneType::Menu) {}
+
+  const std::vector<std::string_view> menuItems{};
+};
+
+struct InGameScene : Scene {
+  InGameScene(const char *name) : Scene(name, SceneType::InGame) {}
+};
+
+using SceneName = std::string_view;
+using UniqueScene = std::unique_ptr<Scene>;
 
 class SceneManager {
-  std::unordered_map<Scene, SharedSceneContainer> m_scenes{};
-  Scene m_currentScene{Scene::MainMenu};
-
 public:
-  Scene getCurrentScene() const { return m_currentScene; }
-  //TODO: will this be used?
-  void setCurrentScene(Scene newScene) { m_currentScene = newScene; }
-
-  SharedSceneContainer getCurrentSceneContainer() const {
-    return m_scenes.at(m_currentScene);
+  SceneName getCurrentSceneName() const { return m_currentSceneName; }
+  // TODO: is it fine to return a raw pointer here?
+  Scene *getCurrentScene() const {
+    return m_scenes.at(m_currentSceneName).get();
   }
+
+private:
+  std::unordered_map<SceneName, UniqueScene> m_scenes{};
+  SceneName m_currentSceneName{};
 };
