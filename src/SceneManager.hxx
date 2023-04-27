@@ -42,6 +42,6 @@ public:
 private:
   std::unordered_map<SceneName, UniqueScene> m_scenes{};
   SceneName m_currentSceneName{};
-
+private:
   void createScene(SceneName name);
 };
