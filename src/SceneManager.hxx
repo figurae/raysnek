@@ -36,8 +36,12 @@ public:
   Scene *getCurrentScene() const {
     return m_scenes.at(m_currentSceneName).get();
   }
+  // TODO: would it be better in a constructor?
+  void initialize();
 
 private:
   std::unordered_map<SceneName, UniqueScene> m_scenes{};
   SceneName m_currentSceneName{};
+
+  void createScene(SceneName name);
 };
