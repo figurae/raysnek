@@ -1,10 +1,10 @@
 #pragma once
 
-#include <memory>            // for allocator, make_unique, unique_ptr
-#include <string>            // for operator+, char_traits, string
-#include "SceneManager.hxx"  // for SceneManager
-#include "Window.hpp"        // for Window
-#include "config.hxx"        // for GAME_TITLE, GAME_VERSION
+#include "SceneManager.hxx" // for SceneManager
+#include "Window.hpp"       // for Window
+#include "config.hxx"       // for GAME_TITLE, GAME_VERSION
+#include <memory>           // for allocator, make_unique, unique_ptr
+#include <string>           // for operator+, char_traits, string
 
 class Game {
   int m_screenWidth{800};
@@ -22,6 +22,6 @@ class Game {
   void draw() const;
 
 public:
-  Game() : m_sceneManager(std::make_unique<SceneManager>()) {}
+  Game();
   void run() const;
 };

@@ -1,12 +1,20 @@
 #include "Game.hxx"
 #include "sceneList.hxx" // for sceneList
 #include <array>         // for array
-#include <raylib.h>      // for BeginDrawing, ClearBackground, EndDrawing
-#include <type_traits>   // for enable_if_t
+#include <memory>
+#include <raylib.h>    // for BeginDrawing, ClearBackground, EndDrawing
+#include <type_traits> // for enable_if_t
+
+Game::Game()
+    : m_sceneManager(std::make_unique<SceneManager>()),
+      m_window(std::make_unique<raylib::Window>()) {
+  // SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+  // TODO: does this need to be handled on exit?
+  m_window->Init(m_screenWidth, m_screenHeight, m_titleBar);
+  SetTargetFPS(60);
+}
 
 void Game::run() const {
-  initialize();
-
   m_sceneManager->initialize();
   m_sceneManager->loadScene(sceneList[1]);
 
@@ -16,13 +24,6 @@ void Game::run() const {
     draw();
   }
 };
-
-void Game::initialize() const {
-  // TODO: handle window cleanup on exit
-  // SetConfigFlags(FLAG_WINDOW_RESIZABLE);
-  m_window->Init(m_screenWidth, m_screenHeight, m_titleBar);
-  SetTargetFPS(60);
-}
 
 void Game::handleInput() const {}
 
