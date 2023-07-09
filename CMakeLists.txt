@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
 project(raysnek VERSION 0.1)
 
 # raylib
+message(STATUS "Looking for raylib and fetching if necessary...")
 find_package(raylib QUIET)
 if (NOT raylib_FOUND)
     include(FetchContent)
@@ -14,6 +15,7 @@ if (NOT raylib_FOUND)
 endif()
 
 # raylib-cpp
+message(STATUS "Looking for raylib_cpp and fetching if necessary...")
 find_package(raylib_cpp QUIET)
 if (NOT raylib_cpp_FOUND)
     include(FetchContent)
