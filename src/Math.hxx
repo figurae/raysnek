@@ -48,7 +48,7 @@ template <typename T> struct Vector2D {
     return *this;
   }
 
-  Vector2D &operator==(const Vector2D& other) {
+  Vector2D &operator==(const Vector2D &other) {
     return m_x == other.m_x && m_y == other.m_y;
   }
 
