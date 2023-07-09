@@ -1,10 +1,9 @@
 cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
 project(raysnek VERSION 0.1)
 
-# raylib
 message(STATUS "Looking for raylib and fetching if necessary...")
 find_package(raylib QUIET)
-if (NOT raylib_FOUND)
+if(NOT raylib_FOUND)
     include(FetchContent)
     FetchContent_Declare(
         raylib
@@ -14,10 +13,9 @@ if (NOT raylib_FOUND)
     FetchContent_MakeAvailable(raylib)
 endif()
 
-# raylib-cpp
 message(STATUS "Looking for raylib_cpp and fetching if necessary...")
 find_package(raylib_cpp QUIET)
-if (NOT raylib_cpp_FOUND)
+if(NOT raylib_cpp_FOUND)
     include(FetchContent)
     FetchContent_Declare(
         raylib_cpp
@@ -26,8 +24,6 @@ if (NOT raylib_cpp_FOUND)
     )
     FetchContent_MakeAvailable(raylib_cpp)
 endif()
-
-# This is the main part:
 
 set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
@@ -45,10 +41,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 17)
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}")
 target_link_libraries(${PROJECT_NAME} PUBLIC raylib raylib_cpp)
 
-# Web Configurations
-if ("${PLATFORM}" STREQUAL "Web")
-    # Tell Emscripten to build an example.html file.
-    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".html")
 find_program(IWYU_PATH NAMES include-what-you-use iwyu)
 if(IWYU_PATH)
     message(STATUS "include-what-you-use found and enabled")
@@ -60,5 +52,4 @@ else()
     message(STATUS "include-what-you-use not found")
 endif()
 
-# That's it! You should have an example executable that you can run. Have fun!
 # TODO: implement iwyu-fix-includes support
