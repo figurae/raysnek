@@ -14,7 +14,7 @@ class Game {
   const std::unique_ptr<raylib::Window> m_window{};
 
   const Viewport m_viewport{};
-  const SceneManager m_sceneManager{};
+  const std::unique_ptr<SceneManager> m_sceneManager{};
   // EntityManager m_entityManager{};
 
   float m_dT{};
@@ -25,5 +25,6 @@ class Game {
   void draw() const;
 
 public:
+  Game() : m_sceneManager(std::make_unique<SceneManager>()) {}
   void run() const;
 };
