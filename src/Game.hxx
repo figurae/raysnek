@@ -1,11 +1,10 @@
 #pragma once
 
-#include "Entity.hxx"       // for Viewport
-#include "SceneManager.hxx" // for SceneManager
-#include "Window.hpp"       // for Window
-#include "config.hxx"       // for GAME_TITLE, GAME_VERSION
-#include <memory>           // for allocator, make_unique, unique_ptr
-#include <string>           // for operator+, char_traits, string
+#include <memory>            // for allocator, make_unique, unique_ptr
+#include <string>            // for operator+, char_traits, string
+#include "SceneManager.hxx"  // for SceneManager
+#include "Window.hpp"        // for Window
+#include "config.hxx"        // for GAME_TITLE, GAME_VERSION
 
 class Game {
   int m_screenWidth{800};
@@ -13,9 +12,7 @@ class Game {
   std::string m_titleBar{GAME_TITLE + ' ' + GAME_VERSION};
   const std::unique_ptr<raylib::Window> m_window{};
 
-  const Viewport m_viewport{};
   const std::unique_ptr<SceneManager> m_sceneManager{};
-  // EntityManager m_entityManager{};
 
   float m_dT{};
 

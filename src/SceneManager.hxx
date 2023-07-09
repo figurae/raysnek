@@ -1,5 +1,6 @@
 #pragma once
 
+#include "EntityManager.hxx"
 #include <memory>        // for unique_ptr
 #include <string_view>   // for string_view, hash, operator==
 #include <unordered_map> // for unordered_map
@@ -39,15 +40,14 @@ public:
   Scene *getScene(SceneName sceneName) const {
     return m_scenes.at(sceneName).get();
   }
-  void loadScene(const Scene &scene) const {
-    // TODO: implement
-  }
   // TODO: would it be better in a constructor?
   void initialize();
+  void loadScene(const Scene &scene) const;
 
 private:
   std::unordered_map<SceneName, UniqueScene> m_scenes{};
   SceneName m_currentSceneName{};
+  std::unique_ptr<EntityManager> m_entityManager{};
 private:
   void createScene(SceneName name);
 };

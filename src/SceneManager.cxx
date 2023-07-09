@@ -12,3 +12,7 @@ void SceneManager::initialize() {
     m_scenes.emplace(scene.sceneName, std::make_unique<Scene>(scene));
   }
 }
+
+void SceneManager::loadScene(const Scene &scene) const {
+  // TODO: implement
+}

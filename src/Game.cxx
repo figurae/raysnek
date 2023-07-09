@@ -1,14 +1,14 @@
 #include "Game.hxx"
-#include <raylib.h> // for BeginDrawing, ClearBackground, EndDrawing, SetTa...
+#include "sceneList.hxx" // for sceneList
+#include <array>         // for array
+#include <raylib.h>      // for BeginDrawing, ClearBackground, EndDrawing
+#include <type_traits>   // for enable_if_t
 
 void Game::run() const {
   initialize();
 
   m_sceneManager->initialize();
-  // m_sceneManager->loadScene(sceneList[1]);
-  // m_entityManager->spawnViewport();
-  // m_entityManager->spawnLevel();
-  // m_entityManager->spawnPlayer();
+  m_sceneManager->loadScene(sceneList[1]);
 
   while (!m_window->ShouldClose()) {
     handleInput();
