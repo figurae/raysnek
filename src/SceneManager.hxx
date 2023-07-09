@@ -12,7 +12,6 @@ struct Scene {
   const std::string_view sceneName{};
   const SceneType sceneType{};
 
-  // TODO: check the rule of six
   Scene(const char *name, const SceneType type = SceneType::Unknown)
       : sceneName(name), sceneType(type) {}
 };
@@ -32,6 +31,7 @@ using UniqueScene = std::unique_ptr<Scene>;
 
 class SceneManager {
 public:
+  SceneManager();
   SceneName getCurrentSceneName() const { return m_currentSceneName; }
   // TODO: is it fine to return a raw pointer here?
   Scene *getCurrentScene() const {
@@ -40,14 +40,13 @@ public:
   Scene *getScene(SceneName sceneName) const {
     return m_scenes.at(sceneName).get();
   }
-  // TODO: would it be better in a constructor?
-  void initialize();
   void loadScene(const Scene &scene) const;
 
 private:
   std::unordered_map<SceneName, UniqueScene> m_scenes{};
   SceneName m_currentSceneName{};
   std::unique_ptr<EntityManager> m_entityManager{};
+
 private:
   void createScene(SceneName name);
 };

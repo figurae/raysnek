@@ -15,7 +15,6 @@ Game::Game()
 }
 
 void Game::run() const {
-  m_sceneManager->initialize();
   m_sceneManager->loadScene(sceneList[1]);
 
   while (!m_window->ShouldClose()) {
