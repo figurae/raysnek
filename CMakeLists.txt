@@ -33,7 +33,10 @@ set(BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BUILD_DIR})
 
-set(SOURCES ${SOURCE_DIR}/main.cxx ${SOURCE_DIR}/Game.cxx)
+set(SOURCES
+    ${SOURCE_DIR}/main.cxx
+    ${SOURCE_DIR}/Game.cxx
+    ${SOURCE_DIR}/SceneManager.cxx)
 configure_file(${SOURCE_DIR}/config.hxx.in ${SOURCE_DIR}/config.hxx)
 add_executable(${PROJECT_NAME} ${SOURCES})
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 17)
