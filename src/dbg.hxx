@@ -2,4 +2,5 @@
 
 #include <iostream>
 
-inline void prtln(std::string text) { std::cout << text << std::endl; }
+template<typename T>
+inline void prtln(T text) { std::cout << text << std::endl; }
