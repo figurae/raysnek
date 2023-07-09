@@ -1,11 +1,11 @@
 #pragma once
 
-#include "EntityManager.hxx"
-#include "SceneManager.hxx"
-#include "config.hxx"
-#include "dbg.hxx"
-#include "raylib-cpp.hpp"
-#include <memory>
+#include "Entity.hxx"       // for Viewport
+#include "SceneManager.hxx" // for SceneManager
+#include "Window.hpp"       // for Window
+#include "config.hxx"       // for GAME_TITLE, GAME_VERSION
+#include <memory>           // for allocator, make_unique, unique_ptr
+#include <string>           // for operator+, char_traits, string
 
 class Game {
   int m_screenWidth{800};

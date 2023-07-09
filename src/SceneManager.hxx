@@ -1,9 +1,9 @@
 #pragma once
 
-#include <memory>
-#include <string_view>
-#include <unordered_map>
-#include <vector>
+#include <memory>        // for unique_ptr
+#include <string_view>   // for string_view, hash, operator==
+#include <unordered_map> // for unordered_map
+#include <vector>        // for vector
 
 enum struct SceneType { Unknown, Menu, InGame, Count };
 

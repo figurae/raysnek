@@ -1,4 +1,5 @@
 #include "Game.hxx"
+#include <raylib.h> // for BeginDrawing, ClearBackground, EndDrawing, SetTa...
 
 void Game::run() const {
   initialize();

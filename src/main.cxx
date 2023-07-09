@@ -1,9 +1,9 @@
-#include "Game.hxx"
-#include <memory>
 
 /* #if defined(PLATFORM_WEB)
 #include <emscripten/emscripten.h>
 #endif */
+#include "Game.hxx" // for Game
+#include <memory>   // for make_unique, unique_ptr
 
 int main() {
   auto game = std::make_unique<Game>();
