@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
 project(raysnek VERSION 0.1)
 
 # raylib
@@ -44,6 +44,16 @@ target_link_libraries(${PROJECT_NAME} PUBLIC raylib raylib_cpp)
 if ("${PLATFORM}" STREQUAL "Web")
     # Tell Emscripten to build an example.html file.
     set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".html")
+find_program(IWYU_PATH NAMES include-what-you-use iwyu)
+if(IWYU_PATH)
+    message(STATUS "include-what-you-use found and enabled")
+    set_property(
+        TARGET raysnek
+        PROPERTY CXX_INCLUDE_WHAT_YOU_USE ${IWYU_PATH}
+    )
+else()
+    message(STATUS "include-what-you-use not found")
 endif()
 
 # That's it! You should have an example executable that you can run. Have fun!
+# TODO: implement iwyu-fix-includes support
