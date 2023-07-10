@@ -1,10 +1,11 @@
 #pragma once
 
-#include "EntityManager.hxx"
-#include <memory>        // for unique_ptr
-#include <string_view>   // for string_view, hash, operator==
-#include <unordered_map> // for unordered_map
-#include <vector>        // for vector
+#include "Entity.hxx"        // for Entity
+#include "EntityManager.hxx" // for EntityManager
+#include <memory>            // for unique_ptr
+#include <string_view>       // for string_view, hash, operator==
+#include <unordered_map>     // for unordered_map
+#include <vector>            // for vector
 
 enum struct SceneType { Undefined, Menu, Level, Count };
 
@@ -40,6 +41,10 @@ public:
 
 private:
   const std::vector<std::string_view> m_menuItems{};
+};
+
+struct LevelSceneParams {
+  const std::vector<std::unique_ptr<Entity>> entities{};
 };
 
 struct LevelScene : public Scene {
