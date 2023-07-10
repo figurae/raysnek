@@ -10,9 +10,10 @@ enum struct SceneType { Unknown, Menu, InGame, Count };
 
 struct Scene {
   const std::string_view sceneName{};
-  const SceneType sceneType{};
+  const SceneType sceneType{SceneType::Unknown};
 
-  Scene(const char *name, const SceneType type = SceneType::Unknown)
+protected:
+  Scene(const char *name, const SceneType type)
       : sceneName(name), sceneType(type) {}
 };
 
