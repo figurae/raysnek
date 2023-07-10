@@ -2,9 +2,9 @@
 #include "sceneList.hxx" // for sceneList
 #include <array>         // for array
 
-SceneManager::SceneManager() : m_currentSceneName(sceneList[0].sceneName) {
+SceneManager::SceneManager() : m_currentSceneName(sceneList[0].getSceneName()) {
   for (const auto &scene : sceneList) {
-    m_scenes.emplace(scene.sceneName, std::make_unique<Scene>(scene));
+    m_scenes.emplace(scene.getSceneName(), std::make_unique<Scene>(scene));
   }
 }
 

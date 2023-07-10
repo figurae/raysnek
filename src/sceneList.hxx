@@ -3,5 +3,6 @@
 #include "SceneManager.hxx"
 #include <array>
 
-const std::array sceneList{
-    std::to_array<Scene>({MenuScene("Main Menu"), LevelScene("Level")})};
+const std::array sceneList{std::to_array<Scene>(
+    {MenuScene({.sceneName = "Main Menu"}, {.menuItems = {"Play", "Quit"}}),
+     LevelScene({.sceneName = "Level"})})};

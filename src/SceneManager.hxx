@@ -6,25 +6,45 @@
 #include <unordered_map> // for unordered_map
 #include <vector>        // for vector
 
-enum struct SceneType { Unknown, Menu, Level, Count };
+enum struct SceneType { Undefined, Menu, Level, Count };
 
-struct Scene {
-  const std::string_view sceneName{};
-  const SceneType sceneType{SceneType::Unknown};
+struct SceneParams {
+  const std::string_view sceneName{"Undefined Scene"};
+};
+
+class Scene {
+public:
+  const std::string_view getSceneName() const { return m_sceneName; }
+  const SceneType getSceneType() const { return m_sceneType; }
 
 protected:
-  Scene(const char *name, const SceneType type)
-      : sceneName(name), sceneType(type) {}
+  Scene(const SceneParams &params, const SceneType type)
+      : m_sceneName(params.sceneName), m_sceneType(type) {}
+
+private:
+  const std::string_view m_sceneName{};
+  const SceneType m_sceneType{SceneType::Undefined};
 };
 
-struct MenuScene : Scene {
-  const std::vector<std::string_view> menuItems{};
-
-  MenuScene(const char *name) : Scene(name, SceneType::Menu) {}
+struct MenuSceneParams {
+  const std::vector<std::string_view> menuItems{"Undefined Menu Item"};
 };
 
-struct LevelScene : Scene {
-  LevelScene(const char *name) : Scene(name, SceneType::Level) {}
+class MenuScene : public Scene {
+public:
+  MenuScene(const SceneParams &params, const MenuSceneParams &menuParams)
+      : Scene(params, SceneType::Menu), m_menuItems(menuParams.menuItems) {}
+  const std::vector<std::string_view> &getMenuItems() const {
+    return m_menuItems;
+  }
+
+private:
+  const std::vector<std::string_view> m_menuItems{};
+};
+
+struct LevelScene : public Scene {
+public:
+  LevelScene(const SceneParams &params) : Scene(params, SceneType::Level) {}
 };
 
 using SceneName = std::string_view;
