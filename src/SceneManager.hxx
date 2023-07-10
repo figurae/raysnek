@@ -6,7 +6,7 @@
 #include <unordered_map> // for unordered_map
 #include <vector>        // for vector
 
-enum struct SceneType { Unknown, Menu, InGame, Count };
+enum struct SceneType { Unknown, Menu, Level, Count };
 
 struct Scene {
   const std::string_view sceneName{};
@@ -23,8 +23,8 @@ struct MenuScene : Scene {
   MenuScene(const char *name) : Scene(name, SceneType::Menu) {}
 };
 
-struct InGameScene : Scene {
-  InGameScene(const char *name) : Scene(name, SceneType::InGame) {}
+struct LevelScene : Scene {
+  LevelScene(const char *name) : Scene(name, SceneType::Level) {}
 };
 
 using SceneName = std::string_view;

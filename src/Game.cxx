@@ -1,9 +1,8 @@
 #include "Game.hxx"
 #include "sceneList.hxx" // for sceneList
 #include <array>         // for array
-#include <memory>
-#include <raylib.h>    // for BeginDrawing, ClearBackground, EndDrawing
-#include <type_traits> // for enable_if_t
+#include <memory>        // for make_unique, unique_ptr
+#include <raylib.h>      // for BeginDrawing, ClearBackground, EndDrawing
 
 Game::Game()
     : m_sceneManager(std::make_unique<SceneManager>()),

@@ -1,7 +1,6 @@
 #include "SceneManager.hxx"
 #include "sceneList.hxx" // for sceneList
 #include <array>         // for array
-#include <type_traits>   // for enable_if_t
 
 SceneManager::SceneManager() : m_currentSceneName(sceneList[0].sceneName) {
   for (const auto &scene : sceneList) {
