@@ -37,7 +37,7 @@ set(SOURCES
     ${SOURCE_DIR}/SceneManager.cxx)
 configure_file(${SOURCE_DIR}/config.hxx.in ${SOURCE_DIR}/config.hxx)
 add_executable(${PROJECT_NAME} ${SOURCES})
-set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 17)
+set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 20)
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}")
 target_link_libraries(${PROJECT_NAME} PUBLIC raylib raylib_cpp)
 
