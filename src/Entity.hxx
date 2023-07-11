@@ -1,15 +1,21 @@
 #pragma once
 
 #include "Math.hxx"
+#include <memory>
 #include <vector>
 
 struct EntityParams {
   std::string_view entityName = "Undefined Entity";
+  Vector2D<float> position{};
 };
 
 class Entity {
+public:
+  const std::string_view getEntityName() const { return m_entityName; }
+
 protected:
-  Entity(const EntityParams &params) : m_entityName(params.entityName) {}
+  Entity(const EntityParams &params)
+      : m_entityName(params.entityName), m_position(params.position) {}
 
 private:
   std::string_view m_entityName{};

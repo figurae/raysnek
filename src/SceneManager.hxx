@@ -5,6 +5,7 @@
 #include <memory>            // for unique_ptr
 #include <string_view>       // for string_view, hash, operator==
 #include <unordered_map>     // for unordered_map
+#include <utility>           // for move
 #include <vector>            // for vector
 
 enum struct SceneType { Undefined, Menu, Level, Count };
@@ -43,13 +44,18 @@ private:
   const std::vector<std::string_view> m_menuItems{};
 };
 
-struct LevelSceneParams {
-  const std::vector<std::unique_ptr<Entity>> entities{};
-};
+using UniqueEntity = std::unique_ptr<Entity>;
+using UniqueEntityVector = std::vector<UniqueEntity>;
 
-struct LevelScene : public Scene {
+class LevelScene : public Scene {
 public:
   LevelScene(const SceneParams &params) : Scene(params, SceneType::Level) {}
+  void addEntity(UniqueEntity &entity) {
+    m_entities.emplace_back(std::move(entity));
+  }
+
+private:
+  UniqueEntityVector m_entities{};
 };
 
 using SceneName = std::string_view;
