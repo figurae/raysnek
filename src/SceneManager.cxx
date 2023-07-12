@@ -1,4 +1,5 @@
 #include "SceneManager.hxx"
+#include "Scene.hxx"     // for Scene
 #include "sceneList.hxx" // for sceneList
 #include <array>         // for array
 
@@ -9,5 +10,5 @@ SceneManager::SceneManager() : m_currentSceneName(sceneList[0].getSceneName()) {
 }
 
 void SceneManager::loadScene(const Scene &scene) const {
-  // TODO: implement
+  // m_resourceManager->loadResources(scene);
 }
