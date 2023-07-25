@@ -53,3 +53,13 @@ else()
 endif()
 
 # TODO: implement iwyu-fix-includes support
+
+set(CC_FILE "compile_commands.json")
+set(SOURCE_CC "${SOURCE_DIR}/${CC_FILE}")
+if (NOT EXISTS "${SOURCE_CC}")
+    message(STATUS "${SOURCE_CC} not found, creating symlink")
+    file(CREATE_LINK
+        "${BUILD_DIR}/${CC_FILE}"
+        "${SOURCE_CC}"
+        SYMBOLIC)
+endif()
